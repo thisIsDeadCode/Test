@@ -1,0 +1,73 @@
+<app-nav-button [content]="'Назад'" (click)="handleBack()"></app-nav-button>
+<form
+  class="ad-form"
+  [formGroup]="advertisementForm"
+  novalidate
+  (ngSubmit)="submit()"
+>
+  <div class="form-group">
+    <label>Номер</label>
+    <input
+      class="form-control"
+      name="id"
+      formControlName="id"
+    />
+  </div>
+
+  <label>Выбрать автора</label>
+  <div class="form-group" *ngIf="isUpdate">
+    <select
+      (change)="changeAuthor($event)"
+      formControlName="authorId"
+    >
+      <option [value]="initialState.authorId" selected>
+        {{ initialState.author }}
+      </option>
+    </select>
+  </div>
+  <div class="form-group" *ngIf="isCreate">
+    <select
+      (change)="changeAuthor($event)"
+      formControlName="authorId"
+    >
+      <option *ngFor="let author of authors" [value]="author.id">
+        {{ author.name + ' ' + author.surname }}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Заголовок</label>
+    <input class="form-control" name="title" formControlName="title" />
+  </div>
+  <div class="form-group">
+    <label>Содержание</label>
+    <input class="form-control" name="content" formControlName="content" />
+  </div>
+  <div class="form-group">
+    <label>Дата создания</label>
+    <input
+      class="form-control"
+      name="createdDate"
+      formControlName="createdDate"
+    />
+  </div>
+  <div class="form-group">
+    <label>Дата изменения</label>
+    <input
+      class="form-control"
+      name="modifiedDate"
+      formControlName="modifiedDate"
+    />
+  </div>
+  <div class="form-group">
+    <label>Дата начала действия</label>
+    <input class="form-control" name="startDate" formControlName="startDate" />
+  </div>
+  <div class="form-group">
+    <label>Дата окончания действия</label>
+    <input class="form-control" name="name" formControlName="finishedDate" />
+  </div>
+  <div class="form-group">
+    <app-nav-button [content]="'Отправить'" [disabled]="advertisementForm.invalid"></app-nav-button>
+  </div>
+</form>
