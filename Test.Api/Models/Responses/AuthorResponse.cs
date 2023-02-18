@@ -1,6 +1,6 @@
-﻿namespace Test.Api.View.Models.Requests
+﻿namespace Test.Api.Models.Responses
 {
-    public class AuthorRequest
+    public class AuthorResponse
     {
         public int Id { get; set; }
         public string? Name { get; set; }

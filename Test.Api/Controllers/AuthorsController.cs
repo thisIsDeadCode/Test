@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Test.Api.Data;
-using Test.Api.Data.Models;
-using Test.Api.View.Extensions;
-using Test.Api.View.Models.Requests;
-using Test.Api.View.Models.Responses;
+using Test.Api.Extensions;
+using Test.Api.Models.Requests;
+using Test.Api.Models.Responses;
 
 namespace Test.Api.Controllers
 {

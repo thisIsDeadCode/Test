@@ -1,4 +1,4 @@
-﻿namespace Test.Api.View.Models.Responses
+﻿namespace Test.Api.Models.Responses
 {
     public class AdvertisementResponse
     {

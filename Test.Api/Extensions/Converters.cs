@@ -1,8 +1,9 @@
 ﻿using Test.Api.Data.Models;
+using Test.Api.Models.Requests;
+using Test.Api.Models.Responses;
 using Test.Api.View.Models.Requests;
-using Test.Api.View.Models.Responses;
 
-namespace Test.Api.View.Extensions
+namespace Test.Api.Extensions
 {
     public static class Converters
     {
@@ -25,7 +26,7 @@ namespace Test.Api.View.Extensions
         public static List<AdvertisementResponse> ToAdvertisementResponse(this IEnumerable<Advertisement> advertisements)
         {
             var list = new List<AdvertisementResponse>();
-            foreach(var advertisement in advertisements)
+            foreach (var advertisement in advertisements)
             {
                 list.Add(new AdvertisementResponse()
                 {
@@ -81,7 +82,7 @@ namespace Test.Api.View.Extensions
                 ModifiedDate = advertisement.ModifiedDate,
                 StartDate = advertisement.StartDate,
                 FinishedDate = advertisement.FinishedDate,
-                AuthorId= advertisement.AuthorId,
+                AuthorId = advertisement.AuthorId,
             };
         }
 
