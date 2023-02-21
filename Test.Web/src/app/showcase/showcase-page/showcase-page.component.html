@@ -5,13 +5,14 @@
   ></app-nav-button>
   <br>
   <label>
-    <input type="checkbox" [value]="queryParams.title" (click)="handleCheckbox()"> Актуальные обьявления
+    <input type="checkbox" [value]="queryParams.isActualDate" (click)="handleCheckbox()"> Актуальные обьявления
   </label>
   <br>
-  <label>
-    Фильтр по заголовкам
-    <input type="text" [value]="queryParams.title" (blur)="handleFilter($event)"/>
-  </label>
+  <app-filter-input
+    [title]='queryParams.title'
+    (valueToSend)="handleFilter($event)"
+  >
+  </app-filter-input>
   <br>
   <table>
     <thead>

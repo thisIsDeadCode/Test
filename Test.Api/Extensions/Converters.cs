@@ -28,18 +28,7 @@ namespace Test.Api.Extensions
             var list = new List<AdvertisementResponse>();
             foreach (var advertisement in advertisements)
             {
-                list.Add(new AdvertisementResponse()
-                {
-                    Id = advertisement.Id,
-                    AuthorId = advertisement.AuthorId,
-                    Author = $"{advertisement.Author?.Name} {advertisement.Author?.Surname}",
-                    Title = advertisement.Title,
-                    Content = advertisement.Content,
-                    CreatedDate = advertisement.CreatedDate,
-                    ModifiedDate = advertisement.ModifiedDate,
-                    StartDate = advertisement.StartDate,
-                    FinishedDate = advertisement.FinishedDate,
-                });
+                list.Add(advertisement.ToAdvertisementResponse());
             }
             return list;
         }
@@ -60,13 +49,7 @@ namespace Test.Api.Extensions
             var list = new List<AuthorResponse>();
             foreach (var author in authors)
             {
-                list.Add(new AuthorResponse()
-                {
-                    Id = author.Id,
-                    Name = author.Name,
-                    Rating = author.Rating,
-                    Surname = author.Surname,
-                });
+                list.Add(author.ToAuthorReponse());
             }
             return list;
         }
@@ -91,17 +74,7 @@ namespace Test.Api.Extensions
             var list = new List<Advertisement>();
             foreach (var advertisement in advertisements)
             {
-                list.Add(new Advertisement()
-                {
-                    Id = advertisement.Id,
-                    Title = advertisement.Title,
-                    Content = advertisement.Content,
-                    CreatedDate = advertisement.CreatedDate,
-                    ModifiedDate = advertisement.ModifiedDate,
-                    StartDate = advertisement.StartDate,
-                    FinishedDate = advertisement.FinishedDate,
-                    AuthorId = advertisement.AuthorId,
-                });
+                list.Add(advertisement.ToAdvertisementModel());
             }
             return list;
         }
@@ -122,15 +95,9 @@ namespace Test.Api.Extensions
             var list = new List<Author>();
             foreach (var author in authors)
             {
-                list.Add(new Author()
-                {
-                    Id = author.Id,
-                    Name = author.Name,
-                    Rating = author.Rating,
-                    Surname = author.Surname,
-                });
+                list.Add(author.ToAuthorModel());
             }
             return list;
-        }
+        }        
     }
 }

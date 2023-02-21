@@ -27,18 +27,19 @@ namespace Test.Api.Controllers
             {
                 return NotFound();
             }
-            var advertisements = await _context.Advertisements.Include(x => x.Author).OrderBy(x => x.Id).ToListAsync();
+            IQueryable<Advertisement> advertisements = _context.Advertisements.Include(x => x.Author).OrderBy(x => x.Id);
             if(isActualDate)
             {
-                advertisements = advertisements.Where(x => x.FinishedDate > DateTime.UtcNow).ToList();
-
+                advertisements = advertisements.Where(x => x.FinishedDate > DateTime.UtcNow);
             }
             if (title != null)
             {
-                advertisements =  advertisements.Where(x => x.Title.Contains(title)).ToList();
+                advertisements =  advertisements.Where(x => x.Title.Contains(title));
             }
             var _paginationService = new PaginationService<Advertisement>(advertisements, pageNumber, pageSize);
-            var resultAdvertisements = _paginationService.GetItems().ToAdvertisementResponse();
+            var resultAdvertisements = _paginationService.GetItems()
+                                                .ToList()
+                                                .ToAdvertisementResponse();
 
             var res = new CollectionResponse<AdvertisementResponse>(resultAdvertisements, _paginationService.PageInfo);
 

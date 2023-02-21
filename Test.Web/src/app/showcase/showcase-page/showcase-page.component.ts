@@ -96,9 +96,8 @@ export class ShowcasePageComponent implements OnInit, OnDestroy {
     this.setAdvertisements();
   }
 
-  handleFilter(e: Event) {
-    const input = e.target! as  HTMLInputElement;
-    this.queryParams.title = input.value;
+  handleFilter(value: string) {
+    this.queryParams.title = value;
     this.setAdvertisements();
   }
 }

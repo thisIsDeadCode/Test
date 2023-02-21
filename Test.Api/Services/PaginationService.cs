@@ -4,9 +4,9 @@ namespace Test.Api.Services
 {
     public class PaginationService<T> where T : BaseObject
     {
-        private IEnumerable<T> _items;
+        private IQueryable<T> _items;
         public PageInfo PageInfo { get; private set; }
-        public PaginationService(IEnumerable<T> items, int pageNumber, int pageSize)
+        public PaginationService(IQueryable<T> items, int pageNumber, int pageSize)
         {
             _items = items;
             PageInfo = new PageInfo()
@@ -17,7 +17,7 @@ namespace Test.Api.Services
             };
         }
 
-        public IEnumerable<T> GetItems()
+        public IQueryable<T> GetItems()
         {
             var firstIndex = (PageInfo.PageNumber - 1) * PageInfo.PageSize;
             var result = _items.Skip(firstIndex).Take(PageInfo.PageSize);

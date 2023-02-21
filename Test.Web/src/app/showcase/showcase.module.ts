@@ -6,6 +6,7 @@ import { AdvertisementFormComponent } from './components/advertisement-form/adve
 import { ReactiveFormsModule } from '@angular/forms';
 import { PopupComponent } from './components/popup/popup.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { FilterInputComponent } from './components/filter-input/filter-input.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     AdvertisementFormComponent,
     PopupComponent,
     PaginationComponent,
+    FilterInputComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule],
   exports: [ShowcasePageComponent],
